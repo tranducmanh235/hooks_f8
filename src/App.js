@@ -1,14 +1,20 @@
 import "./App.css";
-import { useState } from "react";
+import HooksUseState from "./HooksUseState";
 
 function App() {
-    const [counter, setCounter] = useState(1);
-
     return (
         <div className="App">
-            <h2>{counter}</h2>
+            <HooksUseState />
         </div>
     );
 }
 
 export default App;
+
+/**
+ * component duoc re-render sau khi 'setState'
+ * Initial state chi dung cho lan dau
+ * Set state voi callback?
+ * Initial state voi callback?
+ * Set state la thay the state bang gia tri moi
+ */
