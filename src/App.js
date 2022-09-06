@@ -1,20 +1,16 @@
 import "./App.css";
-import HooksUseState from "./HooksUseState";
+import HooksUseState from "./components/HooksUseState";
+import Todolist_ from "./components/Todolist_";
 
 function App() {
     return (
         <div className="App">
-            <HooksUseState />
+            {/* <HooksUseState /> */}
+            <div className="content">
+                <Todolist_ />
+            </div>
         </div>
     );
 }
 
 export default App;
-
-/**
- * component duoc re-render sau khi 'setState'
- * Initial state chi dung cho lan dau
- * Set state voi callback?
- * Initial state voi callback?
- * Set state la thay the state bang gia tri moi
- */
