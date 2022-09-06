@@ -3,6 +3,7 @@ import "./App.css";
 // import Todolist_ from "./components/Todolist_";
 import Content from "./components/Content";
 import { useState } from "react";
+import Timer from "./components/Timer";
 
 function App() {
     const [show, setShow] = useState(false);
@@ -12,8 +13,11 @@ function App() {
             {/* <HooksUseState /> */}
             <div className="content" style={{ padding: 30 }}>
                 {/* <Todolist_ /> */}
+                {/* <button onClick={() => setShow(!show)}>Toggle</button>
+                {show && <Content />} */}
+
                 <button onClick={() => setShow(!show)}>Toggle</button>
-                {show && <Content />}
+                {show && <Timer />}
             </div>
         </div>
     );
