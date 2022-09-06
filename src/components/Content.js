@@ -17,12 +17,19 @@ import React, { useEffect, useState } from "react";
  * 3. [deps]: Callback chi duoc goi lai moi khi deps thay doi
  */
 
+/**
+ * 1. Callback luon duoc goi sau khi component mounted
+ * 2. Cleanup function luon duoc goi truoc khi component unmounted
+ */
+
 const tabs = ["posts", "comments", "albums"];
 
 const Content = () => {
     const [title, setTitle] = useState("");
     const [posts, setPosts] = useState([]);
     const [type, setType] = useState("posts");
+
+    const [showGoToTop, setShowGoToTop] = useState(false);
 
     // console.log(type);
 
@@ -34,32 +41,78 @@ const Content = () => {
                 setPosts(posts);
             });
 
-        console.log(">>> title changed");
+        // console.log(">>> title changed");
     }, [type]);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            window.scrollY > 200 ? setShowGoToTop(true) : setShowGoToTop(false);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        console.log("addEventListener");
+
+        // cleanup function
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            console.log("removeEventListener");
+        };
+    }, []);
+
+    /* ----------------------- */
+    const [width, setWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWidth(window.innerWidth);
+        };
+
+        window.addEventListener("resize", handleResize);
+
+        // clean up function
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
 
     return (
         <div>
-            {tabs.map((tab) => (
-                <button
-                    key={tab}
-                    onClick={() => setType(tab)}
-                    style={
-                        type === tab
-                            ? { color: "#fff", background: "#333" }
-                            : {}
-                    }
-                >
-                    {tab}
-                </button>
-            ))}
-
-            <input value={title} onChange={(e) => setTitle(e.target.value)} />
-
-            <ul>
-                {posts.map((post) => (
-                    <li key={post.id}>{post.title || post.name}</li>
+            {/* <div>
+                {tabs.map((tab) => (
+                    <button
+                        key={tab}
+                        onClick={() => setType(tab)}
+                        style={
+                            type === tab
+                                ? { color: "#fff", background: "#333" }
+                                : {}
+                        }
+                    >
+                        {tab}
+                    </button>
                 ))}
-            </ul>
+
+                <input
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                />
+
+                <ul>
+                    {posts.map((post) => (
+                        <li key={post.id}>{post.title || post.name}</li>
+                    ))}
+                </ul>
+
+                {showGoToTop && (
+                    <button
+                        style={{ position: "fixed", right: 20, bottom: 20 }}
+                    >
+                        Go to top
+                    </button>
+                )}
+            </div> */}
+
+            <h2>{width}</h2>
         </div>
     );
 };

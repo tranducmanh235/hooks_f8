@@ -7,6 +7,8 @@ const ContentTT = () => {
     const [title, setTitle] = useState("");
     const [jsonApi, setJsonApi] = useState([]);
 
+    const [showGoToTop, setShowGoToTop] = useState(false);
+
     useEffect(() => {
         fetch(`https://jsonplaceholder.typicode.com/${type}`)
             .then((res) => res.json())
@@ -16,10 +18,29 @@ const ContentTT = () => {
         console.log(type);
     }, [type]);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            window.scrollY > 200 ? setShowGoToTop(true) : setShowGoToTop(false);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+    }, []);
+
     return (
         <div>
             {tabs.map((tab) => (
-                <button key={tab} onClick={(e) => setType(tab)}>
+                <button
+                    key={tab}
+                    onClick={(e) => setType(tab)}
+                    style={
+                        tab === type
+                            ? {
+                                  color: "white",
+                                  background: "black",
+                              }
+                            : {}
+                    }
+                >
                     {tab}
                 </button>
             ))}
@@ -29,6 +50,11 @@ const ContentTT = () => {
                     <li key={item.id}>{item.title || item.name}</li>
                 ))}
             </ul>
+            {showGoToTop && (
+                <button style={{ position: "fixed", right: 20, bottom: 20 }}>
+                    Go to top
+                </button>
+            )}
         </div>
     );
 };
