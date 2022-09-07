@@ -1,9 +1,10 @@
 import "./App.css";
-// import HooksUseState from "./components/HooksUseState";
-// import Todolist_ from "./components/Todolist_";
-import Content from "./components/Content";
+// import HooksUseState from "./components/hooksUseEffect/HooksUseState";
+// import Todolist_ from "./components/hooksUseEffect/Todolist_";
+// import Content from "./components/hooksUseEffect/Content";
 import { useState } from "react";
-import Timer from "./components/Timer";
+// import Timer from "./components/hooksUseEffect/Timer";
+import PreviewAvatarTT from "./components/hooksUseEffect/PreviewAvatarTT";
 
 function App() {
     const [show, setShow] = useState(false);
@@ -16,8 +17,11 @@ function App() {
                 {/* <button onClick={() => setShow(!show)}>Toggle</button>
                 {show && <Content />} */}
 
+                {/* <button onClick={() => setShow(!show)}>Toggle</button>
+                {show && <Timer />} */}
+
                 <button onClick={() => setShow(!show)}>Toggle</button>
-                {show && <Timer />}
+                {show && <PreviewAvatarTT />}
             </div>
         </div>
     );

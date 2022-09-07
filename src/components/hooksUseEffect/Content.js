@@ -75,6 +75,17 @@ const Content = () => {
         };
     }, []);
 
+    // --------------------------------- //
+    const [count, setCount] = useState(1);
+    useEffect(() => {
+        console.log(`Mounted or Re-render lan ${count}`);
+
+        // cleanup function
+        return () => {
+            console.log(`Cleanup lan ${count}`);
+        };
+    }, [count]);
+
     return (
         <div>
             {/* <div>
@@ -112,7 +123,10 @@ const Content = () => {
                 )}
             </div> */}
 
-            <h2>{width}</h2>
+            {/* <h2>{width}</h2> */}
+
+            <h2>{count}</h2>
+            <button onClick={() => setCount(count + 1)}>Click me!</button>
         </div>
     );
 };
