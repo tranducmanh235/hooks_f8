@@ -4,7 +4,8 @@ import "./App.css";
 // import Content from "./components/hooksUseEffect/Content";
 import { useState } from "react";
 // import Timer from "./components/hooksUseEffect/Timer";
-import PreviewAvatarTT from "./components/hooksUseEffect/PreviewAvatarTT";
+import PreviewAvatar from "./components/hooksUseEffect/PreviewAvatar";
+import FakeChatApp from "./components/hooksUseEffect/FakeChatApp";
 
 function App() {
     const [show, setShow] = useState(false);
@@ -21,7 +22,10 @@ function App() {
                 {show && <Timer />} */}
 
                 <button onClick={() => setShow(!show)}>Toggle</button>
-                {show && <PreviewAvatarTT />}
+                {show && <PreviewAvatar />}
+
+                {/* <button onClick={() => setShow(!show)}>Toggle</button>
+                {show && <FakeChatApp />} */}
             </div>
         </div>
     );

@@ -19,13 +19,16 @@ const PreviewAvatar = () => {
         file.preview = URL.createObjectURL(file);
 
         setAvatar(file);
+
+        e.target.value = null;
+        console.log(123);
     };
 
     return (
         <div>
             <input type="file" onChange={handlePreviewAvatar} />
 
-            {avatar && <img src={avatar.preview} width="80%" />}
+            {avatar && <img src={avatar.preview} alt="" width="80%" />}
         </div>
     );
 };
