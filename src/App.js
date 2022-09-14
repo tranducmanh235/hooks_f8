@@ -4,8 +4,10 @@ import "./App.css";
 // import Content from "./components/hooksUseEffect/Content";
 import { useState } from "react";
 // import Timer from "./components/hooksUseEffect/Timer";
-import PreviewAvatar from "./components/hooksUseEffect/PreviewAvatar";
-import FakeChatApp from "./components/hooksUseEffect/FakeChatApp";
+// import PreviewAvatar from "./components/hooksUseEffect/PreviewAvatar";
+// import FakeChatApp from "./components/hooksUseEffect/FakeChatApp";
+// import Content from "./components/hooksMore/Content";
+import HooksUseRef from "./components/hooksMore/HooksUseRef";
 
 function App() {
     const [show, setShow] = useState(false);
@@ -21,11 +23,17 @@ function App() {
                 {/* <button onClick={() => setShow(!show)}>Toggle</button>
                 {show && <Timer />} */}
 
-                <button onClick={() => setShow(!show)}>Toggle</button>
-                {show && <PreviewAvatar />}
+                {/* <button onClick={() => setShow(!show)}>Toggle</button>
+                {show && <PreviewAvatar />} */}
 
                 {/* <button onClick={() => setShow(!show)}>Toggle</button>
                 {show && <FakeChatApp />} */}
+
+                {/* <button onClick={() => setShow(!show)}>Toggle</button>
+                {show && <Content />} */}
+
+                <button onClick={() => setShow(!show)}>Toggle</button>
+                {show && <HooksUseRef />}
             </div>
         </div>
     );
