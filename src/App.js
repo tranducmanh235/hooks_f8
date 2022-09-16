@@ -10,7 +10,8 @@ import { useState } from "react";
 // import HooksUseRef from "./components/hooksMore/HooksUseRef";
 // import MemoReact from "./components/more/MemoReact";
 // import HooksUseCallback from "./components/hooksMore/HooksUseCallback";
-import HooksUseMemo from "./components/hooksMore/HooksUseMemo";
+// import HooksUseMemo from "./components/hooksMore/HooksUseMemo";
+import HooksUseReducer from "./components/hooksMore/HooksUseReducer";
 
 function App() {
     const [show, setShow] = useState(false);
@@ -44,8 +45,11 @@ function App() {
                 {/* <button onClick={() => setShow(!show)}>Toggle</button>
                 {show && <HooksUseCallback />} */}
 
+                {/* <button onClick={() => setShow(!show)}>Toggle</button>
+                {show && <HooksUseMemo />} */}
+
                 <button onClick={() => setShow(!show)}>Toggle</button>
-                {show && <HooksUseMemo />}
+                {show && <HooksUseReducer />}
             </div>
         </div>
     );
