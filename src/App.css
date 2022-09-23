@@ -45,3 +45,8 @@
     flex-direction: column;
     background: rgb(160, 160, 160);
 }
+
+.dark {
+    color: #fff;
+    background-color: #333;
+}
