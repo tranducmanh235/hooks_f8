@@ -23,20 +23,25 @@
 
 // export default App;
 
-import Heading from "./CssModule/Heading";
-import Paragraph from "./CssModule/Paragraph/index";
+// import Heading from "./CssModule/Heading";
+// import Paragraph from "./CssModule/Paragraph/index";
 import GlobalStyles from "./CssModule/GlobalStyles";
+import Button from "./CssModule/Button/Button";
 
 function App() {
     return (
         <GlobalStyles>
-            <div>
+            {/* <div>
                 <Heading />
                 <Paragraph />
             </div>
             <div className="d-flex">
                 <span>Item 1</span>
                 <span>Item 2</span>
+            </div> */}
+            <div style={{ padding: "10px 32px" }}>
+                <Button />
+                <Button primary />
             </div>
         </GlobalStyles>
     );
