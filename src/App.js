@@ -1,31 +1,44 @@
-import { useStore, actions } from "./store";
+// import { useRef } from "react";
+// import Video from "./Video";
+
+// function App() {
+//     const videoRef = useRef();
+
+//     const handlePlay = () => {
+//         videoRef.current.play();
+//     };
+
+//     const handlePause = () => {
+//         videoRef.current.pause();
+//     };
+
+//     return (
+//         <div style={{ padding: 40, textAlign: "center" }}>
+//             <Video ref={videoRef} />
+//             <button onClick={handlePlay}>Play</button>
+//             <button onClick={handlePause}>Pause</button>
+//         </div>
+//     );
+// }
+
+// export default App;
+
+import Heading from "./CssModule/Heading";
+import Paragraph from "./CssModule/Paragraph/index";
+import GlobalStyles from "./CssModule/GlobalStyles";
 
 function App() {
-    const [state, dispatch] = useStore();
-    const { todos, todoInput } = state;
-
-    // console.log("todoInput: ", todoInput);
-
-    const handleAdd = () => {
-        dispatch(actions.addTodo(todoInput));
-    };
-
-    console.log(todos);
-
     return (
-        <div>
-            <input
-                value={state.todoInput}
-                placeholder="Enter todo..."
-                onChange={(e) => {
-                    dispatch(actions.setTodoInput(e.target.value));
-                }}
-            />
-            <button onClick={handleAdd}>Add</button>
-            {todos.map((todo, index) => (
-                <li key={index}>{todo}</li>
-            ))}
-        </div>
+        <GlobalStyles>
+            <div>
+                <Heading />
+                <Paragraph />
+            </div>
+            <div className="d-flex">
+                <span>Item 1</span>
+                <span>Item 2</span>
+            </div>
+        </GlobalStyles>
     );
 }
 
